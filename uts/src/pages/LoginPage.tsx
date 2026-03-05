@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Button, TextField } from "@mui/material";
 import { useNavigate } from "react-router";
 import { useAppDispatch } from "../hooks/useAppDispatch";
 import { authActions } from "../store/authSlice";
 import { loginRequest, getUserInfo } from "../api/api";
+
+
 
 function LoginPage() {
 
@@ -16,11 +18,11 @@ function LoginPage() {
     const login = async () => {
         const response = await loginRequest(email, password);
 
-        if (response.status !== 200) {
-            alert("Login failed: " + response.data.message);
-            console.log(response);
-            return;
-        }
+        // if (response.status !== 200) {
+        //     alert("Login failed: " + response.data.message);
+        //     console.log(response);
+        //     return;
+        // }
 
         const userData = await getUserInfo();
 

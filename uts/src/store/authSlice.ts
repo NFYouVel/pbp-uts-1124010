@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-type UserInfo ={
+type UserInfo = {
     id: string;
     name: string;
     role: string;

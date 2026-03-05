@@ -21,13 +21,26 @@ export async function loginRequest(email: string, password: string) {
 }
 
 export async function getUserInfo() {
-
     const response = await fetch(`${BASE_URL}/auth/me`, {
         method: "GET",
         headers: {
             "content-type": "application/json"
         }
     });
+
+    const data = await response.json();
+
+    return data;
+}
+
+
+export async function getPostRequest () {
+    const response = await fetch(`${BASE_URL}/post`, {
+        method: "GET",
+        headers: {
+            "content-type": "application/json"
+        }
+    })
 
     const data = await response.json();
 
