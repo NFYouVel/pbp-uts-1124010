@@ -1,10 +1,9 @@
 import { useAppDispatch } from "../hooks/useAppDispatch";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getPostRequest } from "../api/api";
 import { postAction } from "../store/postSlice";
 import { Card, CardContent, Typography, CardActions, Button } from "@mui/material";
 import { Link } from "react-router";
-import type { post } from "../store/postSlice";
 import { useSelector } from "react-redux";
 import type { RootState } from "../store/store";
 

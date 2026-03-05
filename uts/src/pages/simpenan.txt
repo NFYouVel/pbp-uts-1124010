@@ -1,0 +1,55 @@
+import { useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom"
+import { getMenuDetails } from "../services/api";
+import Paper from '@mui/material/Paper';
+import { Button, Card, CardContent, Typography } from "@mui/material";
+import type { MenuDetail } from "../types/MenuAttribute";
+
+export default function MenuDetails() {
+
+    const { id } = useParams();
+    const [menuDetails, setMenuDetails] = useState<MenuDetail>()
+
+    useEffect(() => {
+        getMenuDetails(id ?? '').then((res) => {
+            setMenuDetails(res)
+        })
+    }, [id])
+
+    return (
+        <div style={{ display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column" }}>
+            <Paper elevation={24} sx={{ maxWidth: "50%" }}>
+                <Card sx={{ maxWidth: "100%", bgcolor: 'grey.200', height: "100%" }}>
+                    <CardContent>
+                        <Typography gutterBottom variant="h5" component="div">
+                            {menuDetails?.deskripsi}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                            <span>Harga: </span>{menuDetails?.harga}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                            <span>Size: </span>{menuDetails?.size}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                            <span>Label: </span>{menuDetails?.label}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                            <span>kategori: </span>{menuDetails?.kategori}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                            <span>Created At: </span>{menuDetails?.createdAt}
+                        </Typography>
+                        <Typography variant="body2" sx={{ color: 'text.secondary' }}>
+                            <span>Updated At: </span>{menuDetails?.updatedAt}
+                        </Typography>
+                    </CardContent>
+                </Card>
+            </Paper>
+            <div style={{marginTop: "20px"}}>
+                <Link to={'/home'}>
+                    <Button size="small">Back</Button>
+                </Link>
+            </div>
+        </div>
+    )
+}

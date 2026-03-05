@@ -5,8 +5,6 @@ import { useAppDispatch } from "../hooks/useAppDispatch";
 import { authActions } from "../store/authSlice";
 import { loginRequest, getUserInfo } from "../api/api";
 
-
-
 function LoginPage() {
 
     const [email, setEmail] = useState("");
