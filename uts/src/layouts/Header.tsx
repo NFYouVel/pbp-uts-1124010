@@ -16,7 +16,7 @@ function Header() {
         <Box sx={{ flexGrow: 1 }} />
 
         <Typography variant="body2">
-          Header
+          1124010 - Marvel Nathanael Lie
         </Typography>
 
       </Toolbar>
